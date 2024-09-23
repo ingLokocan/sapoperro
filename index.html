@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenguajes de Programación</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <header>
+        <h1 id="tope">Lenguajes de Programación de Backend</h1>
+        <button id="menu-btn" class="menu-btn" onclick="toggleMenu()">☰</button>
+        <nav id="nav-menu" class="nav-menu">
+            <ul>
+                <li><a href="#Java">Java</a></li>
+                <li><a href="#PHP">PHP</a></li>
+                <li><a href="#C++">C++</a></li>
+                <li><a href="#galeria">Galería</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="carrusel">
+        <img src="media/java.jpg" alt="Imagen de Java" class="active">
+        <img src="media/mysql.jpg" alt="Imagen de MySQL">
+        <img src="media/PHP.jpg" alt="Imagen de PHP">
+        <img src="media/py.jpg" alt="Imagen de Python">
+        <img src="media/c++.jpg" alt="Imagen de C++">
+
+        <button class="btn-izquierda" onclick="carruselAnterior()">&lt;</button>
+        <button class="btn-derecha" onclick="carruselSiguiente()">&gt;</button>
+    </div>
+
+    <section>
+        <p>A continuación te vamos a mostrar algunos <b>lenguajes de Programación para Backend</b>:</p>
+    </section>
+
+    <section id="Java">
+        <h2><u>Java</u></h2>
+        <p>Java es un lenguaje de programación que sirve para crear una amplia variedad de aplicaciones, desde programas de escritorio hasta sistemas empresariales complejos, aplicaciones móviles y servidores web.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/q_-mO8QJ4Ic" title="Video sobre Java" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <section id="PHP">
+        <h2><u>PHP</u></h2>
+        <p>PHP, acrónimo de "Hypertext Preprocessor", es un lenguaje de programación de propósito general, ampliamente utilizado para el desarrollo de aplicaciones web dinámicas.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/RIh2zgzp_sI" title="Video sobre PHP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <section id="C++">
+        <h2><u>C++</u></h2>
+        <p>C++ es un lenguaje de programación de propósito general y orientado a objetos que se utiliza para desarrollar una amplia gama de aplicaciones, desde sistemas operativos hasta videojuegos y software de alto rendimiento.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0NPFJ73Pmu0" title="Video sobre C++" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <section id="galeria">
+        <h2>Galería de Imágenes</h2>
+        <div class="galeria">
+            <img src="media/images1.jpg" alt="codigo">
+            <img src="media/images2.jpg" alt="codigo">
+            <img src="media/3.jpg" alt="codigo">
+            <img src="media/images4.jpg" alt="codigo">
+            <img src="media/images5.jpg" alt="codigo">
+            <img src="media/images6.jpg" alt="codigo">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Lenguajes de Programación. Todos los derechos reservados.</p>
+        <a href="#tope" class="boton">Volver arriba</a>
+    </footer>
+
+    <script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carrusel img');
+    const totalImages = images.length;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+    }
+
+    function carruselSiguiente() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        showImage(currentIndex);
+    }
+
+    function carruselAnterior() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        showImage(currentIndex);
+    }
+
+    showImage(currentIndex);
+
+    setInterval(carruselSiguiente, 3000);
+
+    function toggleMenu() {
+        const navMenu = document.getElementById('nav-menu');
+        navMenu.classList.toggle('show');
+    }
+    </script>
+</body>
+</html>
+
+
+
